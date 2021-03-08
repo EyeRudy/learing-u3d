@@ -1,0 +1,19 @@
+[ clampMagnitude ]:
+//如果向量selfPosition+target.transform.position的模长大于5，则selfPosition的模长为5，反之为两者相加之和;
+selfPosition =Vector3.ClampMagnitude( selfPosition + target.transform.position,5);
+//API: Vector3.ClampMagnitude(offset,radius)
+
+[ lerp ]
+//
+[ OrthoNormalize ]//使向量规范化并且彼此相互垂直
+//使向量selfPosition垂直与向量a
+Vector3.OrthoNormalize(ref selfPosition, ref a);
+//API Vector3.OrthoNormalize(ref basisA,ref basisB,ref basisC);
+[ project ]//求向量一在向量二上的投影               [ projectonplan ]//向量一再平面plan的投影，
+Vector3.project(Vector3 vector,Vector3 onNormal)    Vector3.resert=project(Vector3 vector,Vector3 plannomal)
+//求Vector3 vector在Vector3 onNormal上的投影         //将vector向量垂直于平面planomal的投影
+
+[ Reflect ]//求向量a在以向量B为法线的反射向量
+Vector3 resert=Vector3.Reflect(Vector3 a,Vector3 b)
+//求向量a在以向量B为法线的反射向量赋值于resert.
+

@@ -1,0 +1,23 @@
+Transform selfTransform;
+    Vector3 selfPosition = new Vector3();
+    GameObject target;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //将本组件的位置赋值给selfPosition向量函数
+        selfPosition = this.transform.position;
+        //以tag查找游戏组件并赋值于target变量
+        target = GameObject.FindGameObjectWithTag("player");
+        //求本组件与target的父组件的角度
+        float angle1= Vector3.Angle(selfPosition, target.transform.position);
+        //求本组件与target的父组件的角度(点乘)
+        float angle =Vector3.Dot(selfPosition, target.transform.position);
+        float dot2 = Mathf.Asin(angle) * Mathf.Deg2Rad;
+        
+    }

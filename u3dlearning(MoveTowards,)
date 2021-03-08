@@ -1,0 +1,4 @@
+[ MoveTowards ]//将这个物体从向量a匀速移动到向量b.
+this.transform.position = Vector3.MoveTowards(star, end, 0.01f);
+//API-Vector3.MoveTwards(Vector3,Vector3,double)
+//将这个物体从起点star向量以0.01f移动到end向量.

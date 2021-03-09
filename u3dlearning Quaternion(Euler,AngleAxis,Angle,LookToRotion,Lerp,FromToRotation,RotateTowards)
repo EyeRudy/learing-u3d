@@ -1,0 +1,30 @@
+[ Quaternion.Eular() ]//欧拉角转换为四元数           [ eulerAngler:Quaternion]//四元数转化为欧拉角
+Quaternion rotation = Quaternion.Euler(0, 30, 0);    Quaternion rotation = Quaternion.identity;
+//沿Y轴旋转30度                                      rotation.eulerAngles = new Vector3(0, 30, 0);
+                                                    ////将四元数转换为欧拉角并沿Y轴旋转30度   
+[ Quaternion.AngleAxis ]//沿某轴旋转到某值
+transform.rotation = Quaternion.AngleAxis(30, Vector3.up);
+//沿Y轴旋转30度
+
+[ Quaternion.LookRotation ]//z轴沿向量a旋转注视向量a的方向(与transform.lookAt()没区别)
+Quaternion rotation = Quaternion.LookRotation(target.position - transform.position;);
+transform.rotation = rotation;
+//将该物体的z轴方向旋转朝向rotation
+
+[ Quaternion.lerp() ]//从from旋转到to在两者的插值之间9(from和to不能与附加脚本的物体相同)以比例的速度
+transform.rotation = Quaternion.Lerp(from.rotation, to.rotation, speed);
+`Quaternion dir=Quaternion.LookRotation(target.rotation，this.transfrom.rotation)//将本体朝向目标的四元数赋值与dir
+`transforom.rotation=Quaternion.Lerp(this.transfrom.position,dir,0.1f)//将本体以0.1f的速度旋转角度到无限接近dir的角度
+//API:static function Lerp (from : Quaternion, to : Quaternion, t : float) : Quaternion
+
+[ Quaternion.RotateTowards ]//从from旋转到to在两者的插值之间9(from和to不能与附加脚本的物体相同)匀速
+transform.rotation = Quaternion.RotateTowards(from.rotation, to.rotation, speed);
+//这基本上和Quaternion.Slerp相同，但是这个函数的角速度永远不会超过maxDegreesDelta。负的maxDegreesDelta值将使旋转远离to。
+ 
+[ Quaternion.Angle ]//返回a和b两者之间的角度。
+float angle = Quaternion.Angle(transform.rotation, target.rotation);
+//计算物体与target两者之间的角度返回给angle.
+
+[ Quaternion.FromToRotation ]从from到to的旋转
+transform.rotation = Quaternion.FromToRotation(Vector3.up, transform.forward);
+//从y轴转向到物体的z轴

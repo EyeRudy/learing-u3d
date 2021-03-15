@@ -1,0 +1,23 @@
+public class FindChildObject
+{
+    public static Transform ChildTF(Transform parent, string name)
+    {
+        Transform childTf = parent.Find(name);
+        if (childTf != null)
+        { 
+          return childTf;       
+        }
+        int count = parent.childCount;
+        for (int i = 0; i < count; i++)
+        {
+            childTf = ChildTF(parent.GetChild(i), name);
+            
+            if (childTf != null)
+            {
+                return childTf;
+                         
+            }
+        }
+        return null;
+    }
+}

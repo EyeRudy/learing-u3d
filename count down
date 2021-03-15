@@ -1,0 +1,62 @@
+public class Timer : MonoBehaviour
+{
+    private Text t;
+    public float secont;
+    public float time;
+    void Start()
+    {   //method 1 use InvokeRepeating  方法一用InvokeRepeating实现
+        t = this.GetComponent<Text>();
+        InvokeRepeating("timer1", 1, 1);
+        
+    }
+     float mathtime ;
+     Update is called once per frame
+      private void Update()
+   {  // method 2 use deltaTime         方法二用deltaTme实现
+         mathtime += Time.deltaTime;
+         if (mathtime == 1)
+        {
+          mathtime = 0;
+          timer2();
+        }
+   }
+      private void Update()              方法三用Time.time实现
+     {
+         time = time - Time.time;
+          timer3();
+      }
+    void timer1()
+    {
+        secont --;
+        t.text = string.Format("{0:00}:{1:00}", secont / 60, secont % 60);
+        if (secont % 60<= 10)
+        {
+            t.color = Color.red;
+        }
+        if (secont == 0)
+        {
+            CancelInvoke("timer1");
+        }
+    }
+
+    void timer2()
+    {
+        time -= time;
+        t.text = string.Format("{0:00}:{1:00}", time / 60, time % 60);
+        if (time % 60 < 10)
+        {
+            t.color = Color.red;
+        }
+
+    }
+    void timer3()
+    {
+        time -= time;
+        t.text = string.Format("{0:00}:{1:00}", time / 60, time % 60);
+        if (time % 60 < 10)
+        {
+            t.color = Color.red;
+        }
+
+    }
+}
